@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Patron Details</title>
+    <link rel="stylesheet" type="text/css" href="/css/style1.css">
+</head>
+<body>
+    <div class="container1">
+        <h2>Patron Details</h2>
+		 <p><strong>Id : </strong> <span th:text="${patron.id}"></span></p>
+        <p><strong>Name : </strong> <span th:text="${patron.name}"></span></p>
+        <p><strong>Contact Number : </strong> <span th:text="${patron.contactNumber}"></span></p>
+		<div class="buttons">
+        <a href="/library/patrons" class="dashboard-button">Back to Patron List</a>
+		</div>
+    </div>
+</body>
+</html>

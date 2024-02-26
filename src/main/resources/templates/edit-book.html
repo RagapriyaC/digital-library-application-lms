@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Book</title>
+    <link rel="stylesheet" type="text/css" href="/css/style1.css">
+</head>
+<body>
+    <div class="container1">
+        <h2>Edit Book</h2>
+        <form th:action="@{/library/books/__${book.id}__/edit}" method="post" th:object="${book}">
+             <div>
+                <label>Title:</label>
+                <input type="text" th:field="*{title}" />
+                <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="error"></span></span>
+            </div>
+			<br>
+            <div>
+                <label>Author:</label>
+                <input type="text" th:field="*{author}" />
+                <span th:if="${#fields.hasErrors('author')}" th:errors="*{author}" class="error"></span></span>
+            </div>
+			<br>
+            <div>
+                <label>Publication Year:</label>
+                <input type="text" th:field="*{publicationYear}" />
+                <span th:if="${#fields.hasErrors('publicationYear')}" th:errors="*{publicationYear}" class="error">
+            </div>
+			<br>
+            <div>
+                <label>ISBN:</label>
+                <input type="text" th:field="*{isbn}" />
+                <span th:if="${#fields.hasErrors('isbn')}" th:errors="*{isbn}" class="error"></span>
+            </div>
+			<br>
+            <button type="submit">Save Changes</button>
+        </form>
+		<div class="buttons">
+        <a href="/library/books" class="dashboard-button">Cancel</a>
+		</div>
+    </div>
+</body>
+</html>

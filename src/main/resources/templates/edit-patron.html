@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Patron</title>
+    <link rel="stylesheet" type="text/css" href="/css/style1.css">
+</head>
+<body>
+    <div class="container1">
+        <h2>Edit Patron</h2>
+        <form th:action="@{/library/patrons/__${patron.id}__}" method="post" th:object="${patron}">
+<div>
+                <label>Name:</label>
+                <input type="text" th:field="*{name}" />
+                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error"></span></span>
+            </div>
+			<br>
+			<div>
+                <label>Contact Number:</label>
+                <input type="text" th:field="*{contactNumber}" />
+                <span th:if="${#fields.hasErrors('contactNumber')}" th:errors="*{contactNumber}" class="error"></span></span>
+            </div>
+			<br>
+            <button type="submit">Save Changes</button>
+        </form>
+		<div class="buttons">
+        <a href="/library/patrons" class="dashboard-button">Cancel</a>
+		</div>
+       
+    </div>
+</body>
+</html>
+
+		
+          

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borrowing Record List</title>
+    <link rel="stylesheet" type="text/css" href="/css/style1.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Borrowing Record List</h2>
+        <table>
+            <thead>
+                <tr>
+				<th>Book Id</th>
+                    <th>Book Title</th>
+                    <th>Author</th>
+					<th>Patron Id</th>
+                    <th>Patron Name</th>
+                    <th>Borrow Date</th>
+                    <th>Return Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Iterate over borrowing records -->
+                <tr th:each="record : ${borrowingRecord}">
+				 <td th:text="${record.book.id}"></td>
+                    <td th:text="${record.book.title}"></td>
+                    <td th:text="${record.book.author}"></td>
+					 <td th:text="${record.patron.id}"></td>
+                    <td th:text="${record.patron.name}"></td>
+                    <td th:text="${record.borrowDate}"></td>
+                    <td th:text="${record.returnDate}"></td>
+                    <td>
+                        <!-- Add option to return book if it's borrowed -->
+                       <a th:if="${record.returnDate == null}" th:href="@{'/library/return/' + ${record.book.id} + '/patron/' + ${record.patron.id}}">
+                            Return Book
+                        </a>
+                    
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+		<div class="buttons">
+		<a href="/library/dashboard" class="dashboard-button">Back to Dashboard</a>
+		</div>
+    </div>
+</body>
+</html>

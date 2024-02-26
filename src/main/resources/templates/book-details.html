@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${book.title}"></title>
+    <link rel="stylesheet" type="text/css" href="/css/style1.css">
+</head>
+<body>
+    <div class="container1">
+	<h2>Book Details</h2>
+				 <p><strong>Id : </strong> <span th:text="${book.id}"></span></p>
+<p><strong>Title : </strong> <span th:text="${book.title}"></span></p>
+        <p><strong>Author : </strong> <span th:text="${book.author}"></span></p>
+        <p><strong>Publication Year : </strong> <span th:text="${book.publicationYear}"></span></p>
+        <p><strong>ISBN : </strong> <span th:text="${book.isbn}"></span></p>
+		<div class="buttons">
+        <a href="/library/books" class="dashboard-button">Back to Book List</a>
+		</div>
+    </div>
+</body>
+</html>
